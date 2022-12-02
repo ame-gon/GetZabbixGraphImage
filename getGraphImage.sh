@@ -42,4 +42,4 @@ if [ "${TOKEN}" = null ]; then
   exit
 fi
 
-curl -X GET -b zbx_sessionid="${TOKEN}" "${ZBX_SERVER_URL}/chart2.php?graphid=${target_graphid}&width=${GRAPH_WIDTH}&period=${GRAPH_PERIOD}" > ${GRAPH_SAVE_FOLDER_PATH}/${target_graphid}.png
+curl -X GET -b zbx_sessionid="${TOKEN}" "${ZBX_SERVER_URL}/chart2.php?graphid=${target_graphid}&width=${GRAPH_WIDTH}&from=now-${GRAPH_PERIOD}&to=now&profileIdx=web.graphs.filter" > ${GRAPH_SAVE_FOLDER_PATH}/${target_graphid}.png
